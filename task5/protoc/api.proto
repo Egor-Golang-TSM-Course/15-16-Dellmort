@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "./api";
+
+service Storage {
+    rpc Save(TaskRequest) returns (taskResponse) {};
+    rpc Get(GetRequest) returns (GetResponse) {};
+}
+
+message TaskRequest {
+    string message = 2;
+}
+
+message taskResponse {
+    int32 id = 1;
+}
+
+message GetRequest {
+    int32 id = 1;
+}
+
+message GetResponse {
+    int32 id = 1;
+    string message = 2;
+}
